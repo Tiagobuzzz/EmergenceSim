@@ -13,6 +13,6 @@ make
 ```
 
 O programa gera um mapa 20x10 com algumas células contendo símbolos.
-Se uma célula com símbolo tiver o clima de esperança, uma nova
-civilização aparece. As civilizações envelhecem e colapsam após certo
-período.
+Durante vários turnos, se uma célula tiver o clima "Luto" e o símbolo
+"Nome Apagado", nasce uma nova civilização. Cada civilização envelhece a
+cada turno e colapsa após atingir cinco turnos de idade.
