@@ -7,8 +7,12 @@
 #include <cstdlib>
 #include <ctime>
 
-const int MAP_WIDTH = 10;
+// Dimensões do mapa (colunas x linhas)
+const int MAP_WIDTH = 20;
 const int MAP_HEIGHT = 10;
+
+// Idade limite para colapso de uma civilização
+const int CIV_COLLAPSE_AGE = 5;
 
 extern std::vector<std::string> emotions;
 extern std::vector<std::string> symbols;
@@ -17,6 +21,7 @@ struct Cell {
     std::string emotion;
     std::string symbol;
     bool hasCivilization = false;
+    int age = 0;
 };
 
 class Map {
@@ -28,6 +33,7 @@ public:
     void generateMap();
     void printMap() const;
     void detectCivilizationBirths();
+    void ageCivilizations();
 };
 
 #endif // MAP_HPP

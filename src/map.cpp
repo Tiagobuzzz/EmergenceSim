@@ -38,7 +38,24 @@ void Map::detectCivilizationBirths() {
             Cell& cell = grid[y][x];
             if (!cell.hasCivilization && cell.emotion == "Luto" && cell.symbol == "Nome Apagado") {
                 cell.hasCivilization = true;
+                cell.age = 0;
                 std::cout << "Nasce uma civilização em (" << x << "," << y << ")\n";
+            }
+        }
+    }
+}
+
+void Map::ageCivilizations() {
+    for (int y = 0; y < MAP_HEIGHT; ++y) {
+        for (int x = 0; x < MAP_WIDTH; ++x) {
+            Cell& cell = grid[y][x];
+            if (cell.hasCivilization) {
+                cell.age++;
+                if (cell.age > CIV_COLLAPSE_AGE) {
+                    cell.hasCivilization = false;
+                    cell.age = 0;
+                    std::cout << "Civilização colapsa em (" << x << "," << y << ")\n";
+                }
             }
         }
     }
