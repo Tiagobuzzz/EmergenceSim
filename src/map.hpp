@@ -13,6 +13,8 @@ const int MAP_HEIGHT = 10;
 
 // Idade limite para colapso de uma civilização
 const int CIV_COLLAPSE_AGE = 5;
+// Idade mínima para expansão de uma civilização
+const int CIV_EXPANSION_AGE = 2;
 
 extern std::vector<std::string> emotions;
 extern std::vector<std::string> symbols;
@@ -34,6 +36,7 @@ public:
     void printMap() const;
     void detectCivilizationBirths();
     void ageCivilizations();
+    void expandCivilizations();
 };
 
 #endif // MAP_HPP
