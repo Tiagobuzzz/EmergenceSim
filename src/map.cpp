@@ -60,3 +60,28 @@ void Map::ageCivilizations() {
         }
     }
 }
+
+void Map::expandCivilizations() {
+    for (int y = 0; y < MAP_HEIGHT; ++y) {
+        for (int x = 0; x < MAP_WIDTH; ++x) {
+            Cell& cell = grid[y][x];
+            if (cell.hasCivilization && cell.age >= CIV_EXPANSION_AGE) {
+                int dirs[4][2] = {{0,1},{1,0},{0,-1},{-1,0}};
+                // try to find an empty adjacent cell
+                for (auto& d : dirs) {
+                    int nx = x + d[0];
+                    int ny = y + d[1];
+                    if (nx >=0 && nx < MAP_WIDTH && ny >=0 && ny < MAP_HEIGHT) {
+                        Cell& neighbor = grid[ny][nx];
+                        if (!neighbor.hasCivilization) {
+                            neighbor.hasCivilization = true;
+                            neighbor.age = 0;
+                            std::cout << "Civilização se expande para (" << nx << "," << ny << ")\n";
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

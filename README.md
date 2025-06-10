@@ -15,4 +15,6 @@ make
 O programa gera um mapa 20x10 com algumas células contendo símbolos.
 Durante vários turnos, se uma célula tiver o clima "Luto" e o símbolo
 "Nome Apagado", nasce uma nova civilização. Cada civilização envelhece a
-cada turno e colapsa após atingir cinco turnos de idade.
+cada turno e colapsa após atingir cinco turnos de idade. Civilizações com mais
+de dois turnos tentam se expandir para uma célula vizinha vazia, criando uma
+nova colônia.

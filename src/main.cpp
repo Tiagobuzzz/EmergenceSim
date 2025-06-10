@@ -9,6 +9,7 @@ void runSimulation(int turns) {
         std::cout << "\n--- Turno " << t << " ---\n";
         worldMap.detectCivilizationBirths();
         worldMap.ageCivilizations();
+        worldMap.expandCivilizations();
     }
 }
 
